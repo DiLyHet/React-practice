@@ -1,6 +1,6 @@
 // file path: /profile/gateway.js
 
-export default async function(userId) {
+export default async function fetchUser(userId) {
     console.log('implementation for fetchUser');
   
     try {
