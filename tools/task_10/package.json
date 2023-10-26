@@ -1,0 +1,14 @@
+{
+  "name": "task_10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p",
+    "watch": "webpack -d --devtool eval-source-maps -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
