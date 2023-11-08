@@ -1,7 +1,5 @@
 import React from 'react';
 
-const rootElement = document.querySelector('#root');
-
 const Search = (props) => {
   return (
     <div className="search">
