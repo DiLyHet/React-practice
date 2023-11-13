@@ -9,7 +9,7 @@ class Clock extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    currentTime: 0
+    currentTime: this.getTimeWithOffset()
     }
    setInterval(() => {
    
