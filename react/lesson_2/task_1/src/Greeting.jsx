@@ -10,7 +10,7 @@ class Greeting extends React.Component {
   }
 
   render() {
-    if (!this.props.authComp.state.isLoggedIn) {
+    if (!this.props.isLoggedIn) {
       return <GuestGreeting />;
     } else return <UserGreeting />;
   }

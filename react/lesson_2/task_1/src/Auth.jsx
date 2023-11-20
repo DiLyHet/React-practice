@@ -12,21 +12,20 @@ class Auth extends React.Component {
     };
   }
 
+  logoutFunc = () => this.setState({ isLoggedIn: false });
+  loginFunc = () => this.setState({ isLoggedIn: true });
+
   render() {
-    if (!this.state.isLoggedIn)
-      return (
-        <div className='panel'>
-          <Greeting authComp={this}/>
-          <Login authComp={this} />
-        </div>
-      );
-    else
-      return (
-        <div className='panel'>
-          <Greeting authComp={this}/>
-          <Logout authComp={this} />
-        </div>
-      );
+    return (
+      <div className="panel">
+        <Greeting isLoggedIn={this.state.isLoggedIn} />
+        {this.state.isLoggedIn ? (
+          <Logout onLogout={this.logoutFunc} />
+        ) : (
+          <Login onLogin={this.loginFunc} />
+        )}
+      </div>
+    );
   }
 }
 
