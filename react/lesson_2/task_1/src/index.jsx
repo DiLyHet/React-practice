@@ -7,4 +7,4 @@ const messagesArray = ['1', '2', '3', '4'];
 
 const root = document.querySelector('#root');
 
-ReactDOM.render(<Mailbox unreadMessages={messagesArray.length} />, root);
+ReactDOM.render(<Mailbox unreadMessages={['1', '2', '3', '4'].length} />, root);
