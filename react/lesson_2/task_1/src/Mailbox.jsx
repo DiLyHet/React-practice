@@ -5,7 +5,7 @@ class Mailbox extends React.Component {
   constructor() {
     super();
     this.state = {
-      unreadMessages: 7,
+      unreadMessages: 0,
     };
   }
 
