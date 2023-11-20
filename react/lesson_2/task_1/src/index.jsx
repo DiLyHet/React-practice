@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import Mailbox from './Mailbox.jsx';
 
+const messagesArray = ['1', '2', '3', '4'];
+
 const root = document.querySelector('#root');
-  
-ReactDOM.render(<Mailbox unreadMessages = {0}/>, root);
+
+ReactDOM.render(<Mailbox unreadMessages={messagesArray.length} />, root);
