@@ -2,8 +2,7 @@ import React from 'react';
 import './index.scss';
 import Login from './Login.jsx';
 import Logout from './Logout.jsx';
-import UserGreeting from './UserGreeting.jsx';
-import GuestGreeting from './GuestGreeting.jsx';
+import Greeting from './Greeting.jsx';
 
 class Auth extends React.Component {
   constructor() {
@@ -17,14 +16,14 @@ class Auth extends React.Component {
     if (!this.state.isLoggedIn)
       return (
         <div className='panel'>
-          <GuestGreeting />
+          <Greeting authComp={this}/>
           <Login authComp={this} />
         </div>
       );
     else
       return (
         <div className='panel'>
-          <UserGreeting />
+          <Greeting authComp={this}/>
           <Logout authComp={this} />
         </div>
       );
