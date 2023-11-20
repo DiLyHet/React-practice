@@ -2,19 +2,17 @@ import React from 'react';
 import './index.scss';
 
 class Mailbox extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      unreadMessages: 0,
-    };
+  constructor(props) {
+    super(props);
+  
   }
 
   render() {
     return (
       <div className='mailbox'>
         <div className="mailbox__text">Messages</div>
-        {this.state.unreadMessages > 0 && (
-          <div className="mailbox__count">{this.state.unreadMessages}</div>
+        {this.props.unreadMessages > 0 && (
+          <div className="mailbox__count">{this.props.unreadMessages}</div>
         )}
       </div>
     );
