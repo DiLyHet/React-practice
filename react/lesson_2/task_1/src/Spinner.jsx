@@ -4,7 +4,7 @@ import './index.scss';
 class Spinner extends React.Component {
   constructor(props) {
     super(props);
-    setTimeout(this.props.onSpinner, 2000);
+   
   }
   
 

@@ -15,12 +15,11 @@ class Auth extends React.Component {
     this.setState({
       status: 'spinner',
     });
-  };
-
-  onSpinner = () => {
-    this.setState({
-      status: 'logout',
-    });
+    setTimeout(()=>{
+      this.setState({
+        status: 'logout',
+      });
+    }, 2000);
   };
 
   onLogout = () => {
@@ -33,7 +32,7 @@ class Auth extends React.Component {
     return (
       <div>
         {this.state.status === 'login' && (<Login onLogin={this.onLogin}/>)}
-        {this.state.status === 'spinner' && (<Spinner onSpinner={this.onSpinner} size='50px'/>)}
+        {this.state.status === 'spinner' && (<Spinner size='50px'/>)}
         {this.state.status === 'logout' && (<Logout onLogout={this.onLogout}/>)}
       </div>
     );
