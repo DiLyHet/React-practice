@@ -31,7 +31,7 @@ class Page extends React.Component {
           <button className="btn" onClick={() => this.setInfo(infoBtn2)}>
             IPhone 13 Pro
           </button>
-          <button className="btn" onClick={() => this.setInfo(null)}>
+          <button className="btn" onClick={() => this.setInfo(undefined)}>
             Clear
           </button>
         </div>
