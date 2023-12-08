@@ -11,7 +11,7 @@ class Life extends React.Component {
       this.setState({
         currentValue: Math.random(),
       });
-    }, 1000);
+    }, 5000);
   }
 
   componentDidMount() {
@@ -20,7 +20,7 @@ class Life extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log('shouldComponentUpdate(nextProps, nextState): decide to render or not to render');
-    return this.state !== nextState;
+    return this.state !== nextState || this.props !== nextProps;
   }
   render() {
     console.log('return React element to build DOM');
