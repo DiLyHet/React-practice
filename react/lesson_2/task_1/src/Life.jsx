@@ -14,7 +14,6 @@ class Life extends React.Component {
     console.log('shouldComponentUpdate(nextProps, nextState): decide to render or not to render');
   }
 
-  
   componentDidUpdate(prevProps, prevState) {
     console.log('componentDidUpdate(prevProps, prevState): some updates based on new props');
   }
@@ -25,7 +24,13 @@ class Life extends React.Component {
 
   render() {
     console.log('return React element to build DOM');
-    return <div>something</div>;
+    return (
+      <div>
+        {this.props.something.map(smth => (
+          <li key={smth} {...smth} >{smth}</li>
+        ))}
+      </div>
+    );
   }
 }
 
