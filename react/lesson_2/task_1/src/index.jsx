@@ -7,4 +7,4 @@ const something = [1, 2, 3, 4, 5];
 
 const root = document.querySelector('#root');
 
-ReactDOM.render(<Life something={something}/>, root);
+ReactDOM.render(<Life something={0}/>, root);

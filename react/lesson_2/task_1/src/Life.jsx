@@ -4,6 +4,14 @@ class Life extends React.Component {
   constructor(props) {
     super(props);
     console.log('constructor: good place to create state');
+    this.state = {
+      currentValue: 0,
+    };
+    setInterval(() => {
+      this.setState({
+        currentValue: Math.random(),
+      });
+    }, 1000);
   }
 
   componentDidMount() {
@@ -12,25 +20,18 @@ class Life extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log('shouldComponentUpdate(nextProps, nextState): decide to render or not to render');
+    return this.state !== nextState;
   }
-
+  render() {
+    console.log('return React element to build DOM');
+    return <div>{this.state.currentValue}</div>;
+  }
   componentDidUpdate(prevProps, prevState) {
     console.log('componentDidUpdate(prevProps, prevState): some updates based on new props');
   }
 
   componentWillUnmount() {
     console.log('componentWillUnmount(): cleanup before DOM related to component will be removed');
-  }
-
-  render() {
-    console.log('return React element to build DOM');
-    return (
-      <div>
-        {this.props.something.map(smth => (
-          <li key={smth} {...smth} >{smth}</li>
-        ))}
-      </div>
-    );
   }
 }
 
