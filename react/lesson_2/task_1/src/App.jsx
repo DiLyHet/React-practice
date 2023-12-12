@@ -22,7 +22,11 @@ class App extends React.Component {
 
   buttonClick() {
     this.setState({ hide: !this.state.hide });
-    clearInterval();
+    this.componentWillUnmount();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timeout);
   }
 
   render() {
