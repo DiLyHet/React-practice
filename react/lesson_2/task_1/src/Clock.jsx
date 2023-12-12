@@ -2,21 +2,6 @@ import React from 'react';
 import moment from 'moment';
 
 class Clock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      updating: true,
-    };
-    setInterval(() => {
-      this.setState({
-        updating: !this.state.updating,
-      });
-    }, 1000);
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state !== nextState || this.props !== nextProps;
-  }
 
   render() {
     return (
