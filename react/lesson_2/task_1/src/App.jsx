@@ -5,14 +5,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      updating: true,
       hide: false,
     };
-    setInterval(() => {
-      this.setState({
-        updating: !this.state.updating,
-      });
-    }, 1000);
+   
     this.buttonClick = this.buttonClick.bind(this);
     this.render = this.render.bind(this);
   }
@@ -22,12 +17,10 @@ class App extends React.Component {
 
   buttonClick() {
     this.setState({ hide: !this.state.hide });
-    this.componentWillUnmount();
+    
   }
 
-  componentWillUnmount() {
-    clearInterval(this.timeout);
-  }
+  
 
   render() {
     return (

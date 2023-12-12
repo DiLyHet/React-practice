@@ -2,7 +2,18 @@ import React from 'react';
 import moment from 'moment';
 
 class Clock extends React.Component {
-
+  constructor(props) {
+    super(props);
+    let timeoutInterval = setInterval(() => {
+      this.forceUpdate();
+    }, 1000);
+    this.state={
+      timeout: timeoutInterval,
+    }
+  }
+  componentWillUnmount() {
+    clearInterval(this.state.timeout);
+  }
   render() {
     return (
       <div className="clock">
