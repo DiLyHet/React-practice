@@ -26,16 +26,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.state.hide === false && (
-          <>
-            <Clock location={'New York'} offset={-5} />
-            <Clock location={'Kyiv'} offset={2} />
-            <Clock location={'London'} offset={0} />
-          </>
-        )}
+      <>
+        <div className="clockroot">
+          {this.state.hide === false && (
+            <>
+              <Clock location={'New York'} offset={-5} />
+              <Clock location={'Kyiv'} offset={2} />
+              <Clock location={'London'} offset={0} />
+            </>
+          )}
+        </div>
         <button onClick={this.buttonClick}>{!this.state.hide ? 'Hide' : 'Show'}</button>
-      </div>
+      </>
     );
   }
 }

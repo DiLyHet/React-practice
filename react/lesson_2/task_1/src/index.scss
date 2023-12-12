@@ -5,6 +5,7 @@ body {
 #root {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -31,4 +32,8 @@ body {
     padding: 8px;
     text-align: center;
   }
+}
+
+.clockroot {
+  display: flex;
 }
