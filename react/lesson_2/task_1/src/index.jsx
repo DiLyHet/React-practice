@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import Dimension from './Dimensions.jsx';
+import User from './User.jsx';
 
 const root = document.querySelector('#root');
 
-ReactDOM.render(<Dimension />, root);
+ReactDOM.render(<User userId={'DiLyHet'}/>, root);
