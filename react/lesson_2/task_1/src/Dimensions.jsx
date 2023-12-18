@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-class Dimensions extends React.Component {
+class Dimension extends React.Component {
   state = {
     width: null,
     height: null,
@@ -36,4 +36,4 @@ class Dimensions extends React.Component {
   }
 }
 
-export default Dimensions;
+export default Dimension;
