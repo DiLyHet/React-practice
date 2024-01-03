@@ -13,7 +13,7 @@ class Search extends React.Component {
   search = event => {
     event.preventDefault();
     console.log(this.state.value);
-  }
+  };
 
   render() {
     return (
@@ -24,7 +24,7 @@ class Search extends React.Component {
           onChange={this.handleChange}
           value={this.state.value}
         />
-        <button className="search__button" type="submit">
+        <button className="search__button" type="submit" onClick = {() => alert(`Search text: ${this.state.value}`)}>
           Search
         </button>
       </form>
