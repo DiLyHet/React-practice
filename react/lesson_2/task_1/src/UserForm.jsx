@@ -34,7 +34,7 @@ class UserForm extends React.Component {
     return (
       <form className="login-form" onSubmit={()=>{
         event.preventDefault();
-        this.props.submitHandler(this.state)}}>
+        this.props.onSubmit(this.state)}}>
         <h1 className="form-title">Profile</h1>
 
         <div className="form-control">

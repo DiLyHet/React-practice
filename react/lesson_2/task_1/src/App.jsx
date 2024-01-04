@@ -10,7 +10,7 @@ createUser(UserForm){
 
     render() {
         return(
-            <UserForm submitHandler={this.createUser} />
+            <UserForm onSubmit={this.createUser} />
         );
     }
 }
