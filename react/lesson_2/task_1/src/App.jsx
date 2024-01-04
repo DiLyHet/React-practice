@@ -5,7 +5,7 @@ class App extends React.Component {
  
 createUser(UserForm){
     console.log(UserForm);
-    event.preventDefault();
+   
 }
 
     render() {
