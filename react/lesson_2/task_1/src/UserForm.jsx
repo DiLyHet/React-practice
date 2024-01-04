@@ -4,12 +4,13 @@ import moment from 'moment';
 class UserForm extends React.Component {
   state = {
     name: '',
-    student: '',
-    occupation: '',
+    student: 'false',
+    occupation: 'london',
     about: '',
   };
 
   handleChange = event => {
+
     const { name, value, checked, type } = event.target;
 
     const val = type === 'checkbox' ? checked : value;
@@ -20,8 +21,8 @@ class UserForm extends React.Component {
   };
 
   handleSubmit = event => {
-    event.preventDefault();
     console.log(this.state);
+    event.preventDefault();
   };
 
   render() {
