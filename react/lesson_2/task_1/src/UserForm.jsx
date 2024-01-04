@@ -2,6 +2,11 @@ import React from 'react';
 import moment from 'moment';
 
 class UserForm extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   state = {
     name: '',
     student: 'false',
@@ -21,7 +26,7 @@ class UserForm extends React.Component {
   };
 
   handleSubmit = event => {
-    console.log(this.state);
+    this.props.submitHandler(this.state);
     event.preventDefault();
   };
 

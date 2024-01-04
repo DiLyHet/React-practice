@@ -3,9 +3,14 @@ import UserForm from './UserForm';
 
 class App extends React.Component {
  
+createUser(UserForm){
+    console.log(UserForm);
+    event.preventDefault();
+}
+
     render() {
         return(
-            <UserForm />
+            <UserForm submitHandler={this.createUser} />
         );
     }
 }
