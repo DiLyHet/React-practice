@@ -2,31 +2,22 @@ import React from 'react';
 import moment from 'moment';
 
 class UserForm extends React.Component {
-  constructor(props) {
-    super(props);
-
-  }
-
   handleSubmit = event => {
-   
-    const name = this.nameInput.value;
-    const student = this.studentInput.checked;
-    const occupation = this.occupationSelect.value;
-    const about = this.aboutTextarea.value;
-
-    const formData = {
-      name,
-      student,
-      occupation,
-      about,
-    };
     event.preventDefault();
+    const formData = [...new FormData(this.formRef)].reduce(
+      (acc, [name, value]) => ({ ...acc, [name]: value }),
+      {},
+    );
     this.props.onSubmit(formData);
+  };
+
+  setFormRef = node => {
+    this.formRef = node;
   };
 
   render() {
     return (
-      <form className="login-form" onSubmit={this.handleSubmit}>
+      <form ref={this.setFormRef} onSubmit={this.handleSubmit} className="login-form">
         <h1 className="form-title">Profile</h1>
 
         <div className="form-control">
