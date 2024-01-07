@@ -2,32 +2,26 @@ import React from 'react';
 import moment from 'moment';
 
 class UserForm extends React.Component {
-
   constructor(props) {
     super(props);
+
   }
-
-  state = {
-    name: '',
-    student: 'false',
-    occupation: 'london',
-    about: '',
-  };
-
-  handleChange = event => {
-
-    const { name, value, checked, type } = event.target;
-
-    const val = type === 'checkbox' ? checked : value;
-
-    this.setState({
-      [name]: val,
-    });
-  };
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onSubmit(this.state);
+    const name = this.nameInput.value;
+    const student = this.studentInput.checked;
+    const occupation = this.occupationSelect.value;
+    const about = this.aboutTextarea.value;
+
+    const formData = {
+      name,
+      student,
+      occupation,
+      about,
+    };
+
+    this.props.onSubmit(formData);
   };
 
   render() {
@@ -42,8 +36,7 @@ class UserForm extends React.Component {
           <input
             className="form-input"
             type="text"
-            value={this.state.name}
-            onChange={this.handleChange}
+            ref={input => (this.nameInput = input)}
             id="name"
             name="name"
           />
@@ -56,8 +49,7 @@ class UserForm extends React.Component {
           <input
             className="form-input"
             type="checkbox"
-            value={this.state.student}
-            onChange={this.handleChange}
+            ref={input => (this.studentInput = input)}
             id="student"
             name="student"
           />
@@ -70,8 +62,7 @@ class UserForm extends React.Component {
           <select
             name="occupation"
             className="form-input"
-            onChange={this.handleChange}
-            value={this.state.occupation}
+            ref={select => (this.occupationSelect = select)}
           >
             <option value="london">London</option>
             <option value="new-york">New York</option>
@@ -87,8 +78,7 @@ class UserForm extends React.Component {
           <textarea
             name="about"
             className="form-input"
-            value={this.state.about}
-            onChange={this.handleChange}
+            ref={textarea => (this.aboutTextarea = textarea)}
           ></textarea>
         </div>
 
