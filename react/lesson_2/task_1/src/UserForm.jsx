@@ -8,7 +8,7 @@ class UserForm extends React.Component {
   }
 
   handleSubmit = event => {
-    event.preventDefault();
+   
     const name = this.nameInput.value;
     const student = this.studentInput.checked;
     const occupation = this.occupationSelect.value;
@@ -20,7 +20,7 @@ class UserForm extends React.Component {
       occupation,
       about,
     };
-
+    event.preventDefault();
     this.props.onSubmit(formData);
   };
 
