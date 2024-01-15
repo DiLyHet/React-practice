@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import App from './App.jsx';
+import UsersList from './UsersList';
 
 const root = document.querySelector('#root');
 
-ReactDOM.render(<App />, root);
+ReactDOM.render(<UsersList />, root);
