@@ -26,7 +26,7 @@ class UsersList extends React.Component {
     return (
       <div>
         <div className="filter">
-          <Filter
+          <Filter filterText={this.state.currentFilterText}
             onChange={event => {
               this.onChangeHandler(event);
             }}
