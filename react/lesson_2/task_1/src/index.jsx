@@ -5,4 +5,12 @@ import UsersList from './UsersList';
 
 const root = document.querySelector('#root');
 
-ReactDOM.render(<UsersList />, root);
+ReactDOM.render(
+  <UsersList
+    users={[
+      { name: 'Lydia', age: 23 },
+      { name: 'Ann', age: 45 },
+    ]}
+  />,
+  root,
+);

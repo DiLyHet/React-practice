@@ -9,10 +9,7 @@ class UsersList extends React.Component {
     this.state = {
       currentFilterText: '',
       currentCount: 0,
-      users: [
-        { name: 'Lydia', age: 23 },
-        { name: 'Ann', age: 45 },
-      ]
+      
     };
   }
 
@@ -23,7 +20,7 @@ class UsersList extends React.Component {
     this.setState({ currentFilterText: event.target.value });
   }
   render() {
-    const filteredList = this.state.users.filter(elem =>
+    const filteredList = this.props.users.filter(elem =>
       elem.name.toLowerCase().includes(this.state.currentFilterText.toLowerCase()),
     );
     return (
