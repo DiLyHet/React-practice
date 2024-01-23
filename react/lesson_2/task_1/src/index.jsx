@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import Game from './Game.jsx';
+import App from './App.jsx';
 
 const root = document.querySelector('#root');
 
-ReactDOM.render(<Game />, root);
+ReactDOM.render(<App userId='DiLyHet'/>, root);
