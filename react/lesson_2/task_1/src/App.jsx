@@ -1,36 +1,36 @@
-import React, { useState } from 'react';
-import Numbers from './Numbers';
-import EvenNumbers from './EvenNumbers';
-import OddNumbers from './OddNumbers';
+import React from 'react';
+import Dialog from './Dialog';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      number: 0,
+      isOpen: false,
     };
   }
 
-  componentDidMount() {
-    this.intervalId = setInterval(() => {
-      this.setState({
-        number: this.state.number + 1,
-      });
-    }, 1000);
-  }
+  hideDialog = () => {
+    this.setState({
+      isOpen: false,
+    });
+  };
 
-  componentWillUnmount() {
-    clearInterval(this.intervalId);
-  }
+  showDialog = () => {
+    this.setState({
+      isOpen: true,
+    });
+  };
 
   render() {
     return (
       <div className="app">
-        <EvenNumbers title="Even numbers" number={this.state.number} />
-        <Numbers title="All numbers" number={this.state.number} />
-        <OddNumbers title="Odd numbers" number={this.state.number} />
-        <Numbers title="All numbers" number={17} />
+        <button className="btn" onClick={this.showDialog}>
+          Show dialog
+        </button>
+        <Dialog title="Recommendation" isOpen={this.state.isOpen} onClose={this.hideDialog}>
+          <p>Use immutable array methods to work with data. It will help to avoid bugs</p>
+        </Dialog>
       </div>
     );
   }
