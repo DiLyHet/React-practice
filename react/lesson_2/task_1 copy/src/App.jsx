@@ -15,6 +15,8 @@ export default class App extends React.Component {
 
   handleChange = event => {
     const { name, value } = event.target;
+    // const newData={...this.state.userData};
+    // newData[name] = value;
     this.setState({
         userData: {
             ...this.state.userData,
