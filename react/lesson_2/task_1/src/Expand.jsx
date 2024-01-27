@@ -31,9 +31,10 @@ export default class Expand extends React.Component {
               <i className={this.state.isOpen ? "fas fa-chevron-up" : "fas fa-chevron-down"}></i>
             </button>
           </div>
+          {this.state.isOpen &&
           <div className="expand__content">
-            <p>{this.state.isOpen ? this.props.content : ''}</p>
-          </div>
+            <p>{this.props.content}</p>
+          </div>}
         </div>
       </div>
     );
