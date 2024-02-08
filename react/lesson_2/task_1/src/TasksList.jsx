@@ -52,16 +52,24 @@ class TasksList extends React.Component {
   };
 
   handleTaskStatusChange = id => {
-    const updatedTasks = this.state.tasks.map(task => {
-      if (task.id === id) {
-        return {
-          ...task,
-          done: !task.done,
-        };
+    const { done, text } = this.state.tasks.find(task => task.id === id);
+    const updatedTask = {
+      text,
+      done: !done,
+    };
+    fetch(`${baseUrl}/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedTask),
+    }).then(response => {
+      if (response.ok) {
+        this.fetchTasksList();
+      } else {
+        throw new Error('Failed to updated task');
       }
-      return task;
     });
-    this.setState({ tasks: updatedTasks });
   };
 
   handleTaskDelete = id => {
