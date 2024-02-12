@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import Dimensions from './Dimensions';
+import ConnectionStatus from './ConnectionStatus';
 
 const root = document.querySelector('#root');
 
-ReactDOM.render(<Dimensions/>, root);
+ReactDOM.render(<ConnectionStatus />, root);
