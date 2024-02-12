@@ -9,7 +9,12 @@ export default function Dimensions() {
   useEffect(() => {
     const { innerHeight, innerWidth } = window;
     setDimensions({ width: innerWidth, height: innerHeight });
-  });
+    const handleResize = e => {
+      const { innerWidth, innerHeight } = e.target;
+      setDimensions({ width: innerWidth, height: innerHeight });
+    };
+    window.addEventListener('resize', handleResize);
+  }, []);
 
   const { width, height } = dimensions;
 
