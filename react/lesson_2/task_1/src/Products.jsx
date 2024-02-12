@@ -2,16 +2,16 @@ import React from 'react';
 import Product from './Product';
 import { Link, Route, Switch } from 'react-router-dom';
 
-const Products = () => {
+function Products({ match }) {
   return (
-    <div class="page__content">
+    <div className="page__content">
       <h1>Products</h1>
-      <ul class="navigation">
-        <li class="navigation__item">
-          <Link to="/products/book">Book</Link>
+      <ul className="navigation">
+        <li className="navigation__item">
+          <Link to={`${match.url}/book`}>Book</Link>
         </li>
-        <li class="navigation__item">
-          <Link to="/products/ball">Ball</Link>
+        <li className="navigation__item">
+          <Link to={`${match.url}/ball`}>Ball</Link>
         </li>
       </ul>
       <Switch>
