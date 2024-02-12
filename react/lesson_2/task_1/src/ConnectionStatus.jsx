@@ -4,12 +4,21 @@ export default function ConnectionStatus() {
   const [status, setStatus] = useState('online');
 
   useEffect(() => {
-    window.onoffline = () => {
+    window.addEventListener('offline', () => {
       setStatus('offline');
-    };
-    window.ononline = () => {
+    });
+    window.addEventListener('online', () => {
       setStatus('online');
-    };
+    });
+
+    return() => {
+      window.removeEventListener('offline', () => {
+        setStatus('offline');
+      });
+      window.removeEventListener('online', () => {
+        setStatus('online');
+      });
+    }
   }, [])
  
 
