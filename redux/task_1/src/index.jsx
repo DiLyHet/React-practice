@@ -1,10 +1,15 @@
 import { createStore } from 'redux';
- 
-const increment = {
-  type: 'INCREMENT',
+
+const increment = () => {
+  return {
+    type: 'INCREMENT',
+  };
 };
-const decrement = {
-  type: 'DECREMENT',
+
+const decrement = () => {
+  return {
+    type: 'DECREMENT',
+  };
 };
 
 const counterReducer = (state = 0, action) => {
