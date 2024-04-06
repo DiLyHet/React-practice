@@ -1,27 +1,19 @@
 import React from 'react';
-import ThemedButton from './ThemedButton';
+import Header from './Header';
 import { themes, ThemeContext } from './themes-context';
 
 class App extends React.Component {
   state = {
-    theme: themes.light,
+    userData: { name: 'Nikola Tesla', avatar_url: 'https://avatars3.githubusercontent.com/u10001' }
   };
 
-  toggleTheme = () => {
-    const newTheme = this.state.theme === themes.dark ? themes.light : themes.dark;
-
-    this.setState({
-      theme: newTheme,
-    });
-  };
   render() {
     return (
-      <div>
-        <ThemeContext.Provider value={this.state.theme}>
-          <ThemedButton onClick={this.toggleTheme}>Dynamic Theme</ThemedButton>
-        </ThemeContext.Provider>
-        <ThemedButton onClick={this.toggleTheme}>Default Theme</ThemedButton>
-      </div>
+      <ThemeContext.Provider value={this.state}>
+        <div className="page">
+          <Header />
+        </div>
+      </ThemeContext.Provider>
     );
   }
 }
