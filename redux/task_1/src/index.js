@@ -1,17 +1,18 @@
-import { createStore } from 'redux';
+import redux from 'redux';
+import { legacy_createStore as createStore } from 'redux';
 
 const INCREMENT = 'COUNTER/INCREMENT';
 const DECREMENT = 'COUNTER/DECREMENT';
 
 const increment = () => {
   return {
-    type: 'INCREMENT',
+    type: INCREMENT,
   };
 };
 
 const decrement = () => {
   return {
-    type: 'DECREMENT',
+    type: DECREMENT,
   };
 };
 
@@ -27,4 +28,10 @@ const counterReducer = (state = 0, action) => {
 };
 
 const store = createStore(counterReducer);
+
+store.dispatch(increment());
+store.dispatch(decrement());
+store.dispatch(decrement());
+store.dispatch(decrement());
+
 console.log(store.getState());
