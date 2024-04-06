@@ -1,5 +1,4 @@
-import redux from 'redux';
-import { legacy_createStore as createStore } from 'redux';
+import { createStore } from 'redux';
 
 const INCREMENT = 'COUNTER/INCREMENT';
 const DECREMENT = 'COUNTER/DECREMENT';
