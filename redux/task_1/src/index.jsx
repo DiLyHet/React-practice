@@ -1,9 +1,9 @@
 import { createStore } from 'redux';
  
-const incrementAction = {
+const increment = {
   type: 'INCREMENT',
 };
-const decrementAction = {
+const decrement = {
   type: 'DECREMENT',
 };
 
