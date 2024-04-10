@@ -22,7 +22,15 @@ resetBtn.addEventListener('click', onReset);
 
 store.subscribe(() => {
     const state = store.getState();
-    const currentValue = state.history.reduce((acc, value) => acc + value);
-    const historyString = state.history.join(' ');
-    resultElem.textContent = `${historyString} = ${currentValue}`;
+    const currentValue = state.history.length > 0
+        ? state.history.reduce((acc, curr) => acc + curr, 0)
+        : 0;
+    const historyString = state.history.map(num => {
+        if (num > 0) {
+            return `+${num}`;
+        } else {
+            return `${num}`;
+        }
+    }).join('');
+    resultElem.textContent = state.history.length === 0 ? '' : `${historyString} = ${currentValue}`;
 });
