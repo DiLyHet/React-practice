@@ -14,7 +14,7 @@ const usersReducer = (state = initialState, action) => {
         }
 
         case DELETE_USER: {
-            const newList = state.usersList.filter(user => user.userData.id !== action.payload.userId);
+            const newList = state.usersList.filter(user => user.id !== action.payload.userId);
             return {
                 ...state,
                 usersList: newList,
@@ -23,7 +23,7 @@ const usersReducer = (state = initialState, action) => {
 
         case UPDATE_USER: {
             const newList = state.usersList.map(user => {
-                if (user.userData.id === action.payload.userId) {
+                if (user.id === action.payload.userId) {
                     return {
                         ...user,
                         ...action.payload.userData,
