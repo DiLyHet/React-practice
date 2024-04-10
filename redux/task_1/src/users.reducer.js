@@ -1,35 +1,46 @@
-export const ADD_USER = 'users/ADD_USER';
-export const DELETE_USER = 'users/DELETE_USER';
+import { ADD_USER, DELETE_USER, UPDATE_USER } from "./users.actions";
 
 const initialState = {
-  usersList: []
+    usersList: []
 };
 
-export const addUser = (user) => ({
-  type: ADD_USER,
-  payload: user
-});
-
-export const deleteUser = (userId) => ({
-  type: DELETE_USER,
-  payload: userId
-});
-
 const usersReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_USER:
-      return {
-        ...state,
-        usersList: [...state.usersList, action.payload]
-      };
-    case DELETE_USER:
-      return {
-        ...state,
-        usersList: state.usersList.filter(user => user.id !== action.payload)
-      };
-    default:
-      return state;
-  }
+    switch (action.type) {
+        case ADD_USER: {
+            return {
+                ...state,
+                usersList: [...state.usersList.concat(action.payload.usersList)]
+            };
+        }
+
+        case DELETE_USER: {
+            const newList = state.usersList.filter(user => user.id !== action.payload.userId)
+            return {
+                ...state,
+                usersList: newList,
+            };
+        }
+
+        case UPDATE_USER: {
+            const newList = state.usersList.map(user => {
+                if (user.id === action.payload.userId) {
+                    return {
+                        ...user,
+                        ...action.payload.userData,
+                    };
+                }
+
+                return user;
+            });
+            return {
+                ...state,
+                usersList: newList,
+            }
+        }
+
+        default:
+            return state;
+    }
 };
 
 export default usersReducer;
