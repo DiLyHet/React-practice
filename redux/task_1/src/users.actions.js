@@ -11,12 +11,12 @@ export const addUser = userData => {
 export const deleteUser = userId => {
     return {
         type: DELETE_USER,
-        payload: { userId, },
+        payload: {userId}
     }
 };
 export const updateUser = (userData, userId) => {
     return {
         type: UPDATE_USER,
-        payload: { userData, userId },
+        payload: {userId, userData }
     }
 };

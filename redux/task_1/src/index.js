@@ -15,4 +15,5 @@ store.dispatch(reset());
 store.dispatch(addUser({ id: 1, name: 'John' }));
 store.dispatch(addUser({ id: 2, name: 'Alice' }));
 
-store.dispatch(deleteUser(1));
+store.dispatch(deleteUser(2));
+store.dispatch(updateUser(1, {name: 'Bob'}));
