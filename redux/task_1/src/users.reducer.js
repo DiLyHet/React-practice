@@ -1,5 +1,5 @@
-const ADD_USER = 'users/ADD_USER';
-const DELETE_USER = 'users/DELETE_USER';
+export const ADD_USER = 'users/ADD_USER';
+export const DELETE_USER = 'users/DELETE_USER';
 
 const initialState = {
   usersList: []
