@@ -32,7 +32,7 @@
     "mini-css-extract-plugin": "^2.3.0",
     "moment": "^2.29.4",
     "prettier": "^2.4.1",
-    "sass": "^1.42.1",
+    "sass": "^1.74.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.3.0",
     "webpack": "^5.89.0",
