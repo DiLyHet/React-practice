@@ -14,7 +14,7 @@ export const deleteUser = userId => {
         payload: {userId}
     }
 };
-export const updateUser = (userData, userId) => {
+export const updateUser = (userId, userData) => {
     return {
         type: UPDATE_USER,
         payload: {userId, userData }
