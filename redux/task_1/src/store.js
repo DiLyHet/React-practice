@@ -3,12 +3,12 @@ import languageReducer from './reducer';
 import cartReducer from './reducer';
 import userReducer from './reducer';
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
   language: languageReducer,
   cart: cartReducer,
   user: userReducer
 });
 
-const store = createStore(rootReducer);
+const store = createStore(appReducer);
 
 export default store;
