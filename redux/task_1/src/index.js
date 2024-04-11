@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setLanguage } from './actions';
-import { addProduct, removeProduct } from './actions';
-import { setUser, removeUser } from './actions';
+import { setLanguage } from './language.actions';
+import { addProduct, removeProduct } from './cart.actions';
+import { setUser, removeUser } from './user.actions';
 
 export const LanguageSelector = () => {
   const dispatch = useDispatch();
