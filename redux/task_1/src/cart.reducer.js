@@ -1,7 +1,7 @@
 import { ADD_PRODUCT, REMOVE_PRODUCT } from './cart.actions';
 
 const initialState = {
-  cartItems: []
+  products: []
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -9,12 +9,12 @@ const cartReducer = (state = initialState, action) => {
     case ADD_PRODUCT:
       return {
         ...state,
-        cartItems: [...state.cartItems, action.payload]
+        products: [...state.products, action.payload]
       };
     case REMOVE_PRODUCT:
       return {
         ...state,
-        cartItems: state.cartItems.filter(item => item.id !== action.payload)
+        products: state.products.filter(item => item.id !== action.payload)
       };
     default:
       return state;
