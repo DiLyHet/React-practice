@@ -1,14 +1,6 @@
-import { createStore, combineReducers } from 'redux';
-import languageReducer from './language.reducer';
-import cartReducer from './cart.reducer';
-import userReducer from './user.reducer';
+import { createStore } from 'redux';
+import counterReducer from './counter.reducer';
 
-const appReducer = combineReducers({
-  language: languageReducer,
-  cart: cartReducer,
-  user: userReducer
-});
-
-const store = createStore(appReducer);
+const store = createStore(counterReducer);
 
 export default store;

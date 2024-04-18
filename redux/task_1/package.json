@@ -1,7 +1,7 @@
 {
   "name": "solution",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
     "start": "webpack serve --mode=development --devtool source-map",
     "build": "webpack --mode=production",
@@ -47,7 +47,7 @@
     "core-js": "^3.18.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^9.1.0",
+    "react-redux": "^9.1.1",
     "react-router-dom": "^5.3.4",
     "redux": "^5.0.1"
   }
