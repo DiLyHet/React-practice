@@ -9,7 +9,7 @@ class Users extends React.Component {
       id,
       name: `User # ${id}`,
     };
-    this.props.createUsers(newUser);
+    this.props.createUser(newUser);
   };
   render() {
     const { users } = this.props;
@@ -20,7 +20,12 @@ class Users extends React.Component {
         </button>
         <ul className="users__list">
           {users.map(user => (
-            <li className="users__list-item">{user.name}</li>
+            <li key={user.id} className="users__list-item">
+              {user.name}
+              <button className="users__delete-btn" onClick={() => this.props.deleteUser(user.id)}>
+                +
+              </button>
+            </li>
           ))}
         </ul>
       </div>
@@ -35,7 +40,8 @@ const mapState = state => {
 };
 
 const mapDispatch = {
-  createUsers: usersActions.addUser,
+  createUser: usersActions.addUser,
+  deleteUser: usersActions.deleteUser,
 };
 
 const connector = connect(mapState, mapDispatch);
