@@ -1,23 +1,20 @@
 import React from 'react';
-import { connect } from 'react-redux'; // Импорт connect из react-redux
+import { useSelector } from 'react-redux';
 import User from './User';
+import Pagination, { itemCount } from './Pagination';
 
-const UsersList = ({ usersList }) => (
+
+const UsersList = () => {
+    const usersList = useSelector((state) => state.users.usersList.slice(state.users.currentPage*itemCount, (state.users.currentPage + 1)*itemCount));
+    return (
   <div>
-    {/* pagination */}
-    {/* users list */}
+    <Pagination />
     <ul className="users">
-      {usersList.map((user) => (
+      {usersList.map(user => (
         <User key={user.id} name={user.name} age={user.age} />
       ))}
     </ul>
   </div>
-);
+)};
 
-// Функция mapStateToProps для получения данных из Redux store
-const mapStateToProps = (state) => ({
-  usersList: state.users.usersList, // Получаем список пользователей из состояния Redux
-});
-
-// Подключение компонента UsersList к Redux store с помощью connect
-export default connect(mapStateToProps)(UsersList);
+export default UsersList;

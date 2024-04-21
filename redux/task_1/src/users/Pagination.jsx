@@ -1,15 +1,26 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { decrement, increment } from '../App';
 
-const Pagination = ({
-  goPrev,
-  goNext,
-  currentPage,
-  totalItems,
-  itemsPerPage,
-}) => {
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+export const itemCount = 3;
+
+const Pagination = () => {
+  const dispatch = useDispatch();
+  const currentPage = useSelector(state => state.users.currentPage);
+  const users = useSelector(state => state.users.usersList);
+  const totalPages = Math.ceil(users.length / itemCount);
   const isPrevPageAvailable = currentPage > 0;
   const isNextPageAvailable = currentPage < totalPages - 1;
+  const goPrev = () => {
+    if (currentPage === 0) {
+      return;
+    }
+    dispatch(decrement());
+  };
+
+  const goNext = () => {
+    dispatch(increment());
+  };
 
   return (
     <div className="pagination">
