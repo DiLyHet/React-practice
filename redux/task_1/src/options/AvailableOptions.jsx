@@ -7,11 +7,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  moveOption: selectedOption => dispatch({ type: 'MOVE_OPTION', payload: selectedOption }),
+  moveOptionToSelected: selectedOption => dispatch({ type: 'MOVE_OPTION_TO_SELECTED', payload: selectedOption }),
 });
 
-const AvailableOptions = ({ options, moveOption }) => (
-  <Options title="Available options" options={options} moveOption={moveOption} />
+const AvailableOptions = ({ options, moveOptionToSelected }) => (
+  <Options title="Available options" options={options} onItemClick={moveOptionToSelected} />
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(AvailableOptions);

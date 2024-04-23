@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Options = ({ title, options, moveOption }) => {
-  const handleOptionClick = (id) => {
-    const selectedOption = options.find(option => option.id === id);
-    moveOption(selectedOption);
+const Options = ({ title, options, onItemClick }) => {
+  const handleItemClick = (id) => {
+    const clickedOption = options.find(option => option.id === id);
+    onItemClick(clickedOption);
   };
 
   return (
@@ -14,7 +14,7 @@ const Options = ({ title, options, moveOption }) => {
           <li key={option.id}>
             <button
               className="options__list-item"
-              onClick={() => handleOptionClick(option.id)}
+              onClick={() => handleItemClick(option.id)}
             >
               {option.name}
             </button>
