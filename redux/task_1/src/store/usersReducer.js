@@ -1,4 +1,4 @@
-const users = [
+const initialUsers = [
     {
       id: 'id-0',
       age: 21,
@@ -56,4 +56,23 @@ const users = [
     },
   ];
   
-  export default users;
+  export const initialState = {
+    filterText: '',
+    usersList: initialUsers
+  };
+  
+  const usersReducer = (state = initialState, action) => {
+    switch (action.type) {
+      case 'SET_FILTER_TEXT':
+        return {
+          ...state,
+          filterText: action.payload,
+        };
+      default:
+        return state;
+    }
+  };
+  
+  export default usersReducer;
+  
+  
