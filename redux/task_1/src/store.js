@@ -1,12 +1,17 @@
-import { createStore, combineReducers } from 'redux';
-import userReducer from './users/users.reducer';
-import counterReducer from './counter/counter.reducer'
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk'; // Пример middleware (необязательно)
 
-const appReducer = combineReducers({
-  users: userReducer,
-  counter: counterReducer
+// Импорт редьюсеров
+import optionsReducer from './reducers/optionsReducer';
+// Другие редьюсеры, если есть
+
+// Комбинирование редьюсеров
+const rootReducer = combineReducers({
+  options: optionsReducer,
+  // Другие редьюсеры, если есть
 });
 
-const store = createStore(appReducer);
+// Создание Redux store с применением middleware (по желанию)
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default store;
