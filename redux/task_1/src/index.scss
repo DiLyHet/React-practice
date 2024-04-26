@@ -4,37 +4,35 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 32px;
 }
 
 #root {
-  display: flex;
   height: 100vh;
-  flex-direction: column;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.weather {
-  width: 100%;
-  max-width: 300px;
-
-  &__title {
-    word-spacing: 16px;
-    font-weight: 300;
-  }
-}
-
-.cities-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.city {
+.counter {
+  margin: auto;
   display: flex;
-  line-height: 32px;
+  align-items: center;
+  justify-content: center;
 
-  &__temperature {
-    margin-left: auto;
+  &__button {
+    width: 48px;
+    height: 48px;
+    border: 2px solid grey;
+    border-radius: 8px;
+    background: transparent;
+    font-weight: 700;
+    font-size: 24px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  &__value {
+    margin: 16px;
   }
 }

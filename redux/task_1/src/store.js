@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
-import weatherReducer from './weather/weather.reducer';
+import counterReducer from './.reducers';
 
 const reducer = combineReducers({
-  weather: weatherReducer,
+  counter: counterReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
