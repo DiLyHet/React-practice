@@ -1,4 +1,3 @@
-// src/reducers/weather.reducer.js
 const initialState = {
     cities: [],
     error: null
