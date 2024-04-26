@@ -39,18 +39,24 @@ const optionsReducer = (state = initialState, action) => {
       return {
         ...state,
         optionsList: state.optionsList.filter(option => option.id !== optionToSelect.id),
-        selected: [...state.selected, optionToSelect],
+        selected: [optionToSelect, ...state.selected].sort((a, b) => a.id.localeCompare(b.id)),
       };
     case 'MOVE_OPTION_TO_AVAILABLE':
       const { payload: optionToDeselect } = action;
+      const existsInAvailableOptions = state.optionsList.some(option => option.id === optionToDeselect.id);
       return {
         ...state,
         selected: state.selected.filter(option => option.id !== optionToDeselect.id),
-        optionsList: [...state.optionsList, optionToDeselect],
+        optionsList: existsInAvailableOptions
+          ? state.optionsList.sort((a, b) => a.id.localeCompare(b.id))
+          : [...state.optionsList, optionToDeselect].sort((a, b) => a.id.localeCompare(b.id)),
+
       };
     default:
       return state;
   }
 };
+
+
 
 export default optionsReducer;
