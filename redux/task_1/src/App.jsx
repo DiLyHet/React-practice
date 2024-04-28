@@ -30,11 +30,25 @@ const App = () => {
   
 
   const toggleTask = (taskId) => {
-    const updatedTasks = tasks.map((task) =>
-      task.id === taskId ? { ...task, completed: !task.completed } : task
-    );
-    setTasks(updatedTasks);
+    const taskToUpdate = tasks.find((task) => task.id === taskId);
+    const updatedTask = { ...taskToUpdate, completed: !taskToUpdate.completed };
+  
+    fetch(`${apiLink}/${taskId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedTask),
+    })
+      .then(() => {
+        const updatedTasks = tasks.map((task) =>
+          task.id === taskId ? updatedTask : task
+        );
+        setTasks(updatedTasks);
+      })
+      .catch((error) => console.error('Error updating task:', error));
   };
+  
 
   const deleteTask = (taskId) => {
     fetch(`${apiLink}/${taskId}`, {
